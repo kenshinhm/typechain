@@ -1,43 +1,28 @@
-// example for interface => code not generated on index.js
+class Block {
+    public index: number;
+    public hash: string;
+    public previousHash: string;
+    public data: string;
+    public timestamp: number;
 
-interface Dog {
-    name: string,
-    age: number,
-    gender?: string
-}
+    constructor(index: number,
+                hash: string,
+                previousHash: string,
+                data: string,
+                timestamp: number) {
 
-const mong: Dog = {
-    name: "mong",
-    age: 22,
-    gender: 'male'
-};
-
-const sayDoggy = (dog: Dog): string => {
-    return `Hello ${dog.name}, you are ${dog.age}, you are a ${dog.gender}`;
-};
-
-console.log(sayDoggy(mong));
-
-// example for class => code generated on index.js
-
-class Human {
-    public name: string;
-    public age: number;
-    public gender: string;
-
-    constructor(name: string, age: number, gender: string) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        this.index = index;
+        this.hash = hash;
+        this.previousHash = previousHash;
+        this.data = data;
+        this.timestamp = timestamp;
     }
 }
 
-const lynn = new Human("Lynn", 18, "female");
+const genesisBlock: Block = new Block(0, '2020202020', '', "hello", 123456);
 
-const sayHuman = (person: Human): string => {
-    return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}`;
-};
+let blockChain: [Block] = [genesisBlock];
 
-console.log(sayHuman(lynn));
+console.log(blockChain);
 
 export {};

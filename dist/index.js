@@ -1,26 +1,15 @@
 "use strict";
-// example for interface => code not generated on index.js
 Object.defineProperty(exports, "__esModule", { value: true });
-const mong = {
-    name: "mong",
-    age: 22,
-    gender: 'male'
-};
-const sayDoggy = (dog) => {
-    return `Hello ${dog.name}, you are ${dog.age}, you are a ${dog.gender}`;
-};
-console.log(sayDoggy(mong));
-// example for class => code generated on index.js
-class Human {
-    constructor(name, age, gender) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+class Block {
+    constructor(index, hash, previousHash, data, timestamp) {
+        this.index = index;
+        this.hash = hash;
+        this.previousHash = previousHash;
+        this.data = data;
+        this.timestamp = timestamp;
     }
 }
-const lynn = new Human("Lynn", 18, "female");
-const sayHuman = (person) => {
-    return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}`;
-};
-console.log(sayHuman(lynn));
+const genesisBlock = new Block(0, '2020202020', '', "hello", 123456);
+let blockChain = [genesisBlock];
+console.log(blockChain);
 //# sourceMappingURL=index.js.map
